@@ -35,4 +35,9 @@ public class Posicion {
         setFila(fila);
         setColumna(columna);
     }
+    public Posicion (Posicion posicion){
+        this.setFila(posicion.getFila());
+        this.setColumna(posicion.getColumna());
+    }
+
 }
