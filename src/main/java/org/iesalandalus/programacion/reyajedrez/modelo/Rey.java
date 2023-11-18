@@ -84,15 +84,17 @@ public class Rey {
                 throw new OperationNotSupportedException("Movimiento no válido.");
                 }
 
-
-
-
-
-
-
            }
         }
+
+    @Override
+    public String toString() {
+        return "Rey{" +
+                "color=" + color +
+                ", posicion=" + posicion +
+                '}';
     }
-
-
 }
+
+
+
