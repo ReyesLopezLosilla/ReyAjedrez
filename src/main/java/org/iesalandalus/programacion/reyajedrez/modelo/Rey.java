@@ -28,5 +28,9 @@ public class Rey {
     public void setTotalMovimientos(int totalMovimientos) {
         this.totalMovimientos = totalMovimientos;
     }
+    public Rey (){
+        this.color = Color.BLANCO;
+        this.posicion = new Posicion(1, 'e');
+    }
 
 }
