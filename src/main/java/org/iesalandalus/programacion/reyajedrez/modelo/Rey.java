@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.reyajedrez.modelo;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Rey {
     private Color color;
     private Posicion posicion;
@@ -39,6 +41,57 @@ public class Rey {
             this.posicion = new Posicion (8, 'e');
         }
 
+    }
+    public void mover (Direccion direccion)throws NullPointerException, OperationNotSupportedException{
+        if (direccion == null){
+            throw new NullPointerException("Esa posición es nula.");
+        }
+        else {
+            try {
+                switch (direccion) {
+                    case NORTE:
+                        this.posicion = new Posicion(posicion.getFila() + 1, posicion.getColumna());
+                        break;
+                    case NORESTE:
+                        this.posicion = new Posicion(posicion.getFila() + 1, (char) (posicion.getColumna() + 1));
+                        break;
+                    case ESTE:
+                        this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() + 1));
+                        break;
+                    case SURESTE:
+                        this.posicion = new Posicion(posicion.getFila() - 1, (char) (posicion.getColumna() + 1));
+                        break;
+                    case SUR:
+                        this.posicion = new Posicion(posicion.getFila() - 1, posicion.getColumna());
+                        break;
+                    case SUROESTE:
+                        this.posicion = new Posicion(posicion.getFila() - 1, (char) (posicion.getColumna() - 1));
+                        break;
+                    case OESTE:
+                        this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() - 1));
+                        break;
+                    case NOROESTE:
+                        this.posicion = new Posicion(posicion.getFila() + 1, (char) (posicion.getColumna() - 1));
+                        break;
+                    case ENROQUE_CORTO:
+                        this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() + 2));
+                        break;
+                    case ENROQUE_LARGO:
+                        this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() - 2));
+                        break;
+                }
+            }catch(IllegalArgumentException e){
+                throw new OperationNotSupportedException("Movimiento no válido.");
+                }
+
+
+
+
+
+
+
+           }
+        }
     }
 
 
