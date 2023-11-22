@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.reyajedrez.modelo;
+package org.iesalandalus.programacion.reyajedrez;
 
 import org.iesalandalus.programacion.utilidades.Entrada;
 
@@ -51,6 +51,9 @@ public class Consola {
             direccionElegida = Entrada.entero();
         }
         return direccionElegida;
+    }
+    public static void despedirse(){
+        System.out.println("¡Nos vemos!");
     }
 
 
