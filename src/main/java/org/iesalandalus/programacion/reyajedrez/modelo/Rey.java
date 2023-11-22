@@ -34,7 +34,7 @@ public class Rey {
         this.color = Color.BLANCO;
         this.posicion = new Posicion(1, 'e');
     }
-    public Rey(Color color, Posicion posicion){
+    public Rey(Color color){
         this();
         if (color != Color.BLANCO){
             this.color = Color.NEGRO;

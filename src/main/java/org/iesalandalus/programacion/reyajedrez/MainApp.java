@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.reyajedrez;
 
+import org.iesalandalus.programacion.reyajedrez.modelo.Color;
 import org.iesalandalus.programacion.reyajedrez.modelo.Rey;
 
 public class MainApp {
@@ -26,6 +27,14 @@ public class MainApp {
     }
     public void crearReyDefecto(){
         rey = new Rey();
+    }
+    public void crearReyColor(int color){
+        rey = new Rey();
+        if (color == 1){
+            rey = new Rey (Color.BLANCO);
+        }else {
+            rey = new Rey (Color.NEGRO);
+        }
     }
 
     public static void main(String[] args) {
