@@ -42,6 +42,16 @@ public class Consola {
         System.out.println("9. Enroque corto");
         System.out.println("10. Enroque largo");
     }
+    public static int elegirDireccion(){
+        int direccionElegida;
+        System.out.println("Por favor elija un número entre el 1 y el 10 en función de la dirección elegida");
+        direccionElegida =Entrada.entero();
+        while (direccionElegida<1 || direccionElegida > 10){
+            System.out.println("Por favor, indique una opción válida");
+            direccionElegida = Entrada.entero();
+        }
+        return direccionElegida;
+    }
 
 
 
