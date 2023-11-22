@@ -11,15 +11,13 @@ public class MainApp {
     public void ejecutarOpcion (int opcion){
         switch(opcion){
             case 1:
-                rey = new Rey();
+                crearReyDefecto();
                 break;
             case 2:
-                Consola.elegirOpcion();
+                crearReyColor(Consola.elegirOpcion());
                 break;
             case 3:
-                Consola.mostrarMenuDirecciones();
-                Consola.elegirDireccion();
-                rey.mover();
+                mover();
                 break;
             case 4:
                 Consola.despedirse();
@@ -79,8 +77,24 @@ public class MainApp {
             System.out.println(e.getMessage());
         }
     }
+    public void mostrarRey (){
+        if (rey == null){
+            System.out.println("El rey no está creado");
+        }else {
+            System.out.println(rey);
+        }
+    }
+
 
     public static void main(String[] args) {
+        boolean continuar;
+        continuar = true;
+        do {
+            Consola.mostrarMenu();
+            Consola.elegirOpcionMenu();
+
+
+        } while (continuar ==true);
 
 
     }

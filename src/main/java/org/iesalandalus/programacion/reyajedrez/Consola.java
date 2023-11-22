@@ -52,8 +52,11 @@ public class Consola {
         }
         return direccionElegida;
     }
-    public static void despedirse(){
+    public static boolean despedirse(){
+        boolean continuar;
+        continuar = false;
         System.out.println("¡Nos vemos!");
+        return continuar;
     }
 
 
