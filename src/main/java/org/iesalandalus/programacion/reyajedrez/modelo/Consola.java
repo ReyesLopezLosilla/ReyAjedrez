@@ -18,7 +18,17 @@ public class Consola {
             System.out.println("Por favor, introduzca un número de opción válido");
             opcionElegida = Entrada.entero();
         }
-    return opcionElegida;
+        return opcionElegida;
+    }
+    public static int elegirOpcion(){
+        int opcionColor;
+        System.out.println("Elija un color indicando el número correspondiente. 1-Blanco o 2-Negro");
+        opcionColor = Entrada.entero();
+        while (opcionColor >2 || opcionColor <1){
+            System.out.println("Por favor, introduce un número de opción válida");
+            opcionColor = Entrada.entero();
+        }
+        return opcionColor;
     }
 
 
