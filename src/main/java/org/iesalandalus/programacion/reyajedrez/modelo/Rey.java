@@ -44,44 +44,63 @@ public class Rey {
     }
     public void mover (Direccion direccion)throws NullPointerException, OperationNotSupportedException{
         if (direccion == null){
-            throw new NullPointerException("Esa posición es nula.");
+            throw new NullPointerException("ERROR: La dirección no puede ser nula.");
         }
         else {
             try {
                 switch (direccion) {
                     case NORTE:
                         this.posicion = new Posicion(posicion.getFila() + 1, posicion.getColumna());
+                        totalMovimientos++;
                         break;
                     case NORESTE:
                         this.posicion = new Posicion(posicion.getFila() + 1, (char) (posicion.getColumna() + 1));
+                        totalMovimientos++;
                         break;
                     case ESTE:
                         this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() + 1));
+                        totalMovimientos++;
                         break;
                     case SURESTE:
                         this.posicion = new Posicion(posicion.getFila() - 1, (char) (posicion.getColumna() + 1));
+                        totalMovimientos++;
                         break;
                     case SUR:
                         this.posicion = new Posicion(posicion.getFila() - 1, posicion.getColumna());
+                        totalMovimientos++;
                         break;
                     case SUROESTE:
                         this.posicion = new Posicion(posicion.getFila() - 1, (char) (posicion.getColumna() - 1));
+                        totalMovimientos++;
                         break;
                     case OESTE:
                         this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() - 1));
+                        totalMovimientos++;
                         break;
                     case NOROESTE:
                         this.posicion = new Posicion(posicion.getFila() + 1, (char) (posicion.getColumna() - 1));
+                        totalMovimientos++;
                         break;
                     case ENROQUE_CORTO:
-                        this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() + 2));
+                        if (totalMovimientos == 0){
+                            this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() + 2));
+                            totalMovimientos++;
+                        }else {
+                            System.out.println("El rey se ha movido");
+                        }
+
                         break;
                     case ENROQUE_LARGO:
-                        this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() - 2));
+                        if (totalMovimientos==0){
+                            this.posicion = new Posicion(posicion.getFila(), (char) (posicion.getColumna() - 2));
+                            totalMovimientos++;
+                        }else {
+                            System.out.println("El rey se ha movido");
+                        }
                         break;
                 }
             }catch(IllegalArgumentException e){
-                throw new OperationNotSupportedException("Movimiento no válido.");
+                throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
                 }
 
            }
@@ -89,10 +108,7 @@ public class Rey {
 
     @Override
     public String toString() {
-        return "Rey{" +
-                "color=" + color +
-                ", posicion=" + posicion +
-                '}';
+        return "color="+color +", posicion=("+posicion+")";
     }
 }
 

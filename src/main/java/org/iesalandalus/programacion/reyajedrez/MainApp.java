@@ -7,8 +7,10 @@ import org.iesalandalus.programacion.reyajedrez.modelo.Rey;
 import javax.naming.OperationNotSupportedException;
 
 public class MainApp {
-    private Rey rey;
-    public void ejecutarOpcion (int opcion){
+    static boolean continuar=true;
+
+    private static Rey rey;
+    public static void ejecutarOpcion (int opcion){
         switch(opcion){
             case 1:
                 crearReyDefecto();
@@ -20,16 +22,16 @@ public class MainApp {
                 mover();
                 break;
             case 4:
-                Consola.despedirse();
+                continuar=false;
                 break;
         }
 
 
     }
-    public void crearReyDefecto(){
+    public static void crearReyDefecto(){
         rey = new Rey();
     }
-    public void crearReyColor(int color){
+    public static void crearReyColor(int color){
         rey = new Rey();
         if (color == 1){
             rey = new Rey (Color.BLANCO);
@@ -38,7 +40,7 @@ public class MainApp {
         }
     }
 
-    public void mover(){
+    public static void mover(){
         Consola.mostrarMenuDirecciones();
         try {
             switch (Consola.elegirDireccion()) {
@@ -77,7 +79,7 @@ public class MainApp {
             System.out.println(e.getMessage());
         }
     }
-    public void mostrarRey (){
+    public static void mostrarRey(){
         if (rey == null){
             System.out.println("El rey no está creado");
         }else {
@@ -87,16 +89,19 @@ public class MainApp {
 
 
     public static void main(String[] args) {
-        boolean continuar;
-        continuar = true;
+
         do {
+            mostrarRey();
             Consola.mostrarMenu();
-            Consola.elegirOpcionMenu();
+            ejecutarOpcion  (Consola.elegirOpcionMenu());
 
 
         } while (continuar ==true);
 
+        Consola.despedirse();
+
 
     }
+
 
 }

@@ -17,7 +17,7 @@ public class Posicion {
 
     public void setFila(int fila) throws IllegalArgumentException {
         if (fila <1 || fila >8) {
-            throw new IllegalArgumentException("La fila no puede ser menor que uno o mayor que ocho.");
+            throw new IllegalArgumentException("ERROR: Fila no válida.");
         }
         else {
             this.fila = fila;
@@ -26,7 +26,7 @@ public class Posicion {
 
     public void setColumna(char columna) throws IllegalArgumentException {
         if (columna <'a' || columna > 'h'){
-            throw new IllegalArgumentException("La columna no puede ser diferente de a-h");
+            throw new IllegalArgumentException("ERROR: Columna no válida.");
         }
         else {
             this.columna = columna;
@@ -38,8 +38,11 @@ public class Posicion {
         setColumna(columna);
     }
     public Posicion (Posicion posicion){
-        this.setFila(posicion.getFila());
-        this.setColumna(posicion.getColumna());
+        if (posicion==null){
+            System.out.println("ERROR: No es posible copiar una posición nula.");
+        }else {
+            this.setFila(posicion.getFila());
+            this.setColumna(posicion.getColumna());}
     }
 
     @Override
@@ -57,6 +60,6 @@ public class Posicion {
 
     @Override
     public String toString() {
-        return "fila = " + fila + ", columna = " + columna;
+        return "fila=" + fila + ", columna=" + columna;
     }
 }
